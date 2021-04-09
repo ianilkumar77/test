@@ -25,7 +25,7 @@ Instance_Create() {
 
   sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${IPADDRESS}/" record.json >/tmp/record.json
   aws route53 change-resource-record-sets --hosted-zone-id Z0449177GO3AQK4VZZ1H --change-batch file:///tmp/record.json
-  echo $IPADDRESS APP=${COMPONENT} >> Inventory
+  echo $IPADDRESS APP=${COMPONENT} >> /home/centos/test/inv
 }
 
 if [ "$1" == "all" ]; then
