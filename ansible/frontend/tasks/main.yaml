@@ -2,4 +2,4 @@
   yum:
     name: nginx
     state: latest
-    become_user: root
+    become: yes
