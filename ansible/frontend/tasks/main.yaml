@@ -1,4 +1,0 @@
-- name: Install the ngnix
-  yum:
-    name: nginx
-    state: latest

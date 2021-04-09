@@ -1,0 +1,9 @@
+- name: Install the ngnix
+  yum:
+    name: nginx
+    state: latest
+
+- name: Download the frontend package from github
+  include_role:
+    name: common
+    tasks_from: download-github
