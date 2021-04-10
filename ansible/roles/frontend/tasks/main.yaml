@@ -9,6 +9,6 @@
     tasks_from: download-github
 
 - name: Remove the default files
-    file: *
+    file:
       path: /usr/share/nginx/html
       state: absent
