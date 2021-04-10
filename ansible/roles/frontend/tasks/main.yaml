@@ -19,3 +19,8 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
+- name: Start nginx, if not started
+  service:
+    name: nginx
+    state: started
+
