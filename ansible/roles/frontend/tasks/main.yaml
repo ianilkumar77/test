@@ -13,8 +13,8 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: Unzip the frontend package
-  unarchive:
-    src: /tmp/frontend.zip
+- name: Copy the extracted files to /usr/share/nginx/html location
+  copy:
+    src: /tmp/frondend-main/static
     dest: /usr/share/nginx/html
-    remote_src: yes
+
