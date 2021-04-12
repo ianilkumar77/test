@@ -28,3 +28,11 @@
     name: common
     tasks_from: download-github
 
+- name: Load the mongodb schema
+  shell: mongo < {{pkg}}
+  args:
+    chdir: /tmp/mongodb-main/
+  loop:
+    - catalogue.js
+    - users.js
+
