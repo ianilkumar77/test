@@ -5,6 +5,6 @@
 
 - name: Unzip the frontend package
   unarchive:
-    src: /tmp/frontend.zip
+    src: /tmp/{{COMPONENT}}.zip
     dest: /tmp
     remote_src: yes
