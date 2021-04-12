@@ -11,3 +11,8 @@
       import_role:
           name: mongodb
       when: APP=="mongodb"
+
+    - name: Import the role catalogue
+        import_role:
+          name: catalogue
+        when: APP=="catalogue"
