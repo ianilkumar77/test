@@ -19,7 +19,7 @@
 
 - name: restart mongodb service
   service:
-    name: mongodb
+    name: mongod
     state: restarted
     enabled: yes
 
