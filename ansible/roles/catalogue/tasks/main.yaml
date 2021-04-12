@@ -1,4 +1,5 @@
 - name: Install NodeJS Components
   yum:
-    name: "{{  nodejs make gcc-c++  }}"
+    name: "{{  item  }}"
     state: present
+  loop: "{{  nodejs make gcc-c++  }}"
