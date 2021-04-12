@@ -17,3 +17,9 @@
     regexp: '^  bindIp: 127.0.0.1'
     line: '  bindIp: 0.0.0.0'
 
+- name: restart mongodb service
+  service:
+    name: mongodb
+    state: restarted
+    enabled: yes
+
