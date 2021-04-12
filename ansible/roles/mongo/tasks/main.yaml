@@ -14,6 +14,6 @@
 - name: Update the bindIp address in mongod.conf file
   lineinfile:
     path: /etc/mongod.conf
-    regexp: '^bindIp: 127.0.0.1'
+    regexp: '^  bindIp: 127.0.0.1'
     line: 'bindIp: 0.0.0.0'
 
