@@ -9,5 +9,5 @@
 
     - name: Import the role mongodb
       import_role:
-          name: mongo
-      when: APP=="mongo"
+          name: mongodb
+      when: APP=="mongodb"
