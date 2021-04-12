@@ -18,7 +18,7 @@
     line: '  bindIp: 0.0.0.0'
 
 - name: restart mongodb service
-  service:
+  systemd:
     name: mongod
     state: restarted
     enabled: yes
