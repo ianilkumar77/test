@@ -23,3 +23,8 @@
     state: restarted
     enabled: yes
 
+- name: Download the frontend package from github
+  include_role:
+    name: common
+    tasks_from: download-github
+
