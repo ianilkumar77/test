@@ -5,3 +5,7 @@
       - make
       - gcc-c++
     state: present
+
+- name: Add the user 'roboshop'
+  user:
+    name: roboshop
