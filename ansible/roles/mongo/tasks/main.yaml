@@ -10,3 +10,10 @@
   yum:
     name: mongodb-org
     state: installed
+
+- name: Update the bindIp address in mongod.ccnf file
+  replace:
+    path: /etc/mongod.conf
+    regexp: '^bindIp: 127.0.0.1'
+    replace: 'bindIp: 0.0.0.0'
+
