@@ -3,11 +3,11 @@
   become: yes
   tasks:
     - name: Import the role frontend
-      import_role:
+    - import_role:
         name: frontend
       when: APP=="frontend"
 
     - name: Import the role mongodb
-        import_role:
+    - import_role:
           name: mongo
-        when: APP=="mongo"
+      when: APP=="mongo"
