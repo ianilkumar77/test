@@ -11,15 +11,15 @@
     name: mongodb-org
     state: installed
 
-#- name: Update the bindIp address in mongod.conf file
-#  lineinfile:
-#    path: /etc/mongod.conf
-#    regexp: '^  bindIp: 127.0.0.1'
-#    line: '  bindIp: 0.0.0.0'
-#
-#- name: restart mongodb service
-#  systemd:
-#    name: mongod
-#    state: restarted
-#    enabled: yes
+- name: Update the bindIp address in mongod.conf file
+  lineinfile:
+    path: /etc/mongod.conf
+    regexp: '^  bindIp'
+    line: '  bindIp: 0.0.0.0'
+
+- name: restart mongodb service
+  systemd:
+    name: mongod
+    state: restarted
+    enabled: yes
 
