@@ -4,4 +4,4 @@
       - nodejs
       - make
       - gcc-c++
-  state: present
+    state: present
