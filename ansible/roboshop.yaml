@@ -13,6 +13,6 @@
       when: APP=="mongodb"
 
     - name: Import the role catalogue
-        import_role:
+      import_role:
           name: catalogue
-        when: APP=="catalogue"
+      when: APP=="catalogue"
