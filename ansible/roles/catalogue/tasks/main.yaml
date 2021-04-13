@@ -21,3 +21,8 @@
     dest: /home/roboshop/catalogue
     remote_src: yes
   become_user: roboshop
+
+- name: Install npm  package.json
+  npm:
+    path: /home/roboshop/catalogue
+    state: latest
