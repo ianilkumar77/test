@@ -6,13 +6,16 @@
       import_role:
         name: frontend
       when: APP=="frontend"
+      tags: frontned
 
     - name: Import the role mongodb
       import_role:
           name: mongodb
       when: APP=="mongodb"
+      tags: mongodb
 
     - name: Import the role catalogue
       import_role:
           name: catalogue
       when: APP=="catalogue"
+      tags: catalogue
