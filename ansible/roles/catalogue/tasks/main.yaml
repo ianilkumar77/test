@@ -27,3 +27,9 @@
     path: /home/roboshop/catalogue
     state: latest
   become_user: roboshop
+
+- name: Copy the systemd.service to /etc/systemd/system/catalogue.service
+  copy:
+    src: /home/roboshop/catalogue/systemd.service
+    dest: /etc/systemd/system/catalogue.service
+    remote_src: yes
