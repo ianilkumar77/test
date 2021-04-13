@@ -6,7 +6,7 @@
       import_role:
         name: frontend
       when: APP=="frontend"
-      tags: frontned
+      tags: frontend
 
     - name: Import the role mongodb
       import_role:
