@@ -14,7 +14,7 @@ user:
     @sh components/redis.sh
 cart:
     @sh components/cart.sh
-nysql:
+mysql:
     @sh components/mysql.sh
 shipping:
     @sh components/shipping.sh
