@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo Installing payments component
+echo Installing payments1 component
