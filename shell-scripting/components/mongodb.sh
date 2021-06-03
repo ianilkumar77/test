@@ -23,11 +23,11 @@ HEAD "Download the Mongo DB Application from GIt Hub"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Download the Mongo DB Application"
-cd /tmp && unzip mongodb.zip -d /tmp &>> /tmp/roboshop.log
+HEAD "Unzipping the Mongo DB Application"
+cd /tmp && unzip mongodb.zip -o /tmp &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Creating MongoDB Schema"
+HEAD "Importing the Roboshop Schema"
 cd mongodb-main  && mongo < catalogue.js && mongo < users.js  &>> /tmp/roboshop.log
 STAT $?
 
