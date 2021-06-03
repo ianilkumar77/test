@@ -15,7 +15,7 @@ yum install -y mongodb-org &>> /tmp/roboshop.log
 STAT $?
 
 HEAD "Update IP Address in /etc/mongodb.conf"
-sed -e -n 's/127.0.0.1/0.0.0.0' /etc/mongodb.conf  &>> /tmp/roboshop.log
+sed -e -i 's/127.0.0.1/0.0.0.0/' /etc/mongodb.conf  &>> /tmp/roboshop.log
 STAT $?
 
 HEAD "Download the Mongo DB Application"
