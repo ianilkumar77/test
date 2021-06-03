@@ -23,7 +23,7 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongo
 STAT $?
 
 HEAD "Download the Mongo DB Application"
-unzip mongodb.zip -d /tmp &>> /tmp/roboshop.log
+cd /tmp && unzip mongodb.zip -d /tmp &>> /tmp/roboshop.log
 STAT $?
 
 HEAD "Creating MongoDB Schema"
