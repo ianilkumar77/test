@@ -29,11 +29,6 @@ HEAD "Creating MongoDB Schema"
 cd mongodb-main  && mongo < catalogue.js && mongo < users.js  &>> /tmp/roboshop.log
 STAT $?
 
-
-
-
-
-
 HEAD "Enable  MongoDB service"
 systemctl enable mongod   &>> /tmp/roboshop.log
 STAT $?
