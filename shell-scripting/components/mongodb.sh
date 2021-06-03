@@ -1,5 +1,6 @@
 #!/bin/bash
 source components/common.sh
+rm /tmp/roboshop.log
 
 HEAD "Setting up MongoDB Repository"
 echo '[mongodb-org-4.2]
