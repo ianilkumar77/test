@@ -20,7 +20,7 @@ STAT $?
 HEAD "Deploying the frontend application"
 cd /usr/share/nginx/html && rm -rf * &>> /tmp/roboshop.log
 STAT $?
-unzip /tmp/frontend.zip
+unzip /tmp/frontend.zip &>> /tmp/roboshop.log
 STAT $?
 mv frontend-main/* . && mv static/* . && rm -rf frontend-master README.md &>> /tmp/roboshop.log
 STAT $?
