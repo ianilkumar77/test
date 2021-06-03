@@ -18,7 +18,7 @@ HEAD "Update IP Address in /etc/mongod.conf"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf  &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Download the Mongo DB Application"
+HEAD "Download the Mongo DB Application from GIt Hub"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>> /tmp/roboshop.log
 STAT $?
 
