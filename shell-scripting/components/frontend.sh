@@ -1,15 +1,15 @@
 #!/bin/bash
 source components/common.sh
-HEAD "Installing nginx"
+HEAD "Installing nginx \t"
 
 yum install nginx -y &>> /tmp/roboshop.log
 
 STAT $?
 
-HEAD "Starting Nginx"
+HEAD "Starting Nginx \t"
 systemctl enable nginx &>> /tmp/roboshop.log
 STAT $?
-HEAD "Enabling Nginx"
+HEAD "Enabling Nginx \t"
 systemctl start nginx &>> /tmp/roboshop.log
 STAT $?
 
