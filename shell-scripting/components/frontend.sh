@@ -1,16 +1,8 @@
 #!/bin/bash
 source components/common.sh
+
 HEAD "Installing nginx \t"
-
 yum install nginx -y &>> /tmp/roboshop.log
-
-STAT $?
-
-HEAD "Starting Nginx \t"
-systemctl enable nginx &>> /tmp/roboshop.log
-STAT $?
-HEAD "Enabling Nginx \t"
-systemctl start nginx &>> /tmp/roboshop.log
 STAT $?
 
 HEAD "Downloading the frontend application"
@@ -28,5 +20,10 @@ STAT $?
 mv localhost.conf /etc/nginx/default.d/roboshop.conf &>> /tmp/roboshop.log
 STAT $?
 
-
+HEAD "Starting Nginx \t"
+systemctl enable nginx &>> /tmp/roboshop.log
+STAT $?
+HEAD "Enabling Nginx \t"
+systemctl restart nginx &>> /tmp/roboshop.log
+STAT $?
 
