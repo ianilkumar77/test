@@ -19,11 +19,11 @@ HEAD "Update IP Address in /etc/mongod.conf"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf  &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Enable  MongoDB service"
+HEAD "Enable  MongoDB service \t\t"
 systemctl enable mongod   &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Start  MongoDB service"
+HEAD "Start  MongoDB service \t\t"
 systemctl start mongod   &>> /tmp/roboshop.log
 STAT $?
 
@@ -31,7 +31,7 @@ HEAD "Download the Mongo DB Application from GIt Hub"
 curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip" &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Unzipping the Mongo DB Application"
+HEAD "Unzipping the Mongo DB Application "
 cd /tmp && unzip -o mongodb.zip  &>> /tmp/roboshop.log
 STAT $?
 
@@ -41,11 +41,11 @@ STAT $?
 mongo < users.js  &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Enable  MongoDB service"
+HEAD "Enable  MongoDB service \t\t"
 systemctl enable mongod   &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Start  MongoDB service"
+HEAD "Restarting  MongoDB service \t\t"
 systemctl restart mongod   &>> /tmp/roboshop.log
 STAT $?
 
