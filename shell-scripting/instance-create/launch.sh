@@ -3,7 +3,7 @@
 COMPONENT=$1;
 
 if [ -z "${COMPONENT}" ]; then
-  echo "atleast one component name is required"
+  echo "component name is required"
   exit 1
 
 fi
