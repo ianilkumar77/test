@@ -1,6 +1,6 @@
 #!/bin/bash
 source components/common.sh
-rm /tmp/roboshop.log
+rm -f /tmp/roboshop.log
 
 HEAD "Installing nodejs make and gcc-c++"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
@@ -19,7 +19,7 @@ HEAD "Unzipping the Catalogue application"
 cd /home/roboshop && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log
 STAT $?
 
-HEAD "Installing the Catalogue application"
+HEAD "Installing the nodejs dependent application"
 mv catalogue-main catalogue && cd /home/roboshop/catalogue && npm install &>>/tmp/roboshop.log
 STAT $?
 
