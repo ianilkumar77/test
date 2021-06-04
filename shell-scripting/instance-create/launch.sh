@@ -8,7 +8,7 @@ if [ -z "${COMPONENT}" ]; then
 fi
 
 INSTANCE_STATE=aws ec2 describe-instances --filters "Name=tag:Name,Values=frontend"|jq .Reservations[].Instances[].State.Name|xargs -n1
-if [ ${INSTANCE_STATE} = "running" ]; then
+if [ "${INSTANCE_STATE}" = "running" ]; then
   echo "Instance already created and running"
   exit 0
 fi
