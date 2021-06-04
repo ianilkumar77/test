@@ -9,8 +9,11 @@ fi
 
 INSTANCE_STATE=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].State.Name|xargs -n1)
 if [ "${INSTANCE_STATE}" = "running" ]; then
-  echo "Instance already created and running"
-  exit 0
+    echo "Instance already created and running"
+    exit 0
+  elif [ "${INSTANCE_STATE}" = "stopped" ]; then
+    echo "Instance is created but in stopped state"
+    exit 0
 fi
 LAUNCH_TEMPLATE_ID=lt-08bf8a3b7c53f50f8
 VERSION=1
