@@ -36,10 +36,9 @@ cd /tmp && unzip -o mongodb.zip  &>> /tmp/roboshop.log
 STAT $?
 
 HEAD "Importing the Roboshop Schema"
-cd mongodb-main  && mongo < catalogue.js &>> /tmp/roboshop.log
+cd mongodb-main  && mongo < catalogue.js &>> /tmp/roboshop.log && mongo < users.js  &>> /tmp/roboshop.log
 STAT $?
-mongo < users.js  &>> /tmp/roboshop.log
-STAT $?
+
 
 HEAD "Enable  MongoDB service \t\t"
 systemctl enable mongod   &>> /tmp/roboshop.log
