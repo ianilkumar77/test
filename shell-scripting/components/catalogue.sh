@@ -6,7 +6,7 @@ HEAD "Installing nodejs make and gcc-c++"
 yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
-CREATE_ROBOSHOP_USER 
+CREATE_ROBOSHOP_USER
 
 HEAD "Downloading the Catalogue application from git hub"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/catalogue/archive/main.zip" &>>/tmp/roboshop.log
