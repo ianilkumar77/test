@@ -22,5 +22,11 @@ STAT $?
 
 FIX_APP_PERMISSION
 
+HEAD "Updating DNS record of mongodb server"
+sed -i -e '/s/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
+STAT $?
+
+
+
 
 
