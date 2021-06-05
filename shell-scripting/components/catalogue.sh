@@ -21,5 +21,7 @@ mv catalogue-main catalogue &>>/tmp/roboshop.log
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
+FIX_APP_PERMISSION
+
 
 

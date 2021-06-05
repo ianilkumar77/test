@@ -23,3 +23,8 @@ HEAD "Add RoboShop App User\t\t"
     STAT $?
   fi
 }
+
+FIX_APP_PERMISSION() {
+  HEAD "Fix app permissions to app content" &>>/tmp/roboshop.log
+  chown roboshop:roboshop /home/roboshop -R
+}
