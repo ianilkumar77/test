@@ -15,7 +15,7 @@ STAT() {
 CREATE_ROBOSHOP_USER() {
 HEAD "Checking if roboshop user already exists"
 id roboshop &>>/tmp/roboshop.log
-if [ $? -eq 0]; then
+if [ $? -eq 0] then
   HEAD "roboshop user already present..... skipping"  &>>/tmp/roboshop.log
 else
   useradd roboshop &>>/tmp/roboshop.log
