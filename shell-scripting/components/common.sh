@@ -12,3 +12,12 @@ STAT() {
   fi
 }
 
+CREATE_ROBOSHOP_USER() {
+HEAD "Checking if roboshop user already exists"
+id roboshop &>>/tmp/roboshop.log
+if [ $? -eq 0]; then
+  HEAD "Creating roboshop user"
+  useradd roboshop &>>/tmp/roboshop.log
+  STAT $?
+fi
+}
