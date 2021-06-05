@@ -17,7 +17,7 @@ cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Installing the nodejs dependent application"
-mv catalogue-main catalogue
+mv catalogue-main catalogue &>>/tmp/roboshop.log
 cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
