@@ -13,12 +13,11 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 STAT $?
 
 HEAD "Unzipping the Catalogue application"
-cd /home/roboshop && unzip -o /tmp/catalogue.zip &>>/tmp/roboshop.log
+cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 STAT $?
 
 HEAD "Installing the nodejs dependent application"
-mv catalogue-main catalogue &>>/tmp/roboshop.log
-cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
+npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 FIX_APP_PERMISSION
