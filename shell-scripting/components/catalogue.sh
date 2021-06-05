@@ -26,6 +26,10 @@ HEAD "Updating DNS record of mongodb server"
 sed -i -e '/s/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/catalogue/systemd.service && mv /home/roboshop/catalogue/systemd.service /etc/systemd/system/catalogue.service
 STAT $?
 
+HEAD "Start systemd & start catalogue service"
+systemctl daemon-reload && systemctl start catalogue && systemctl enable catalogue &>> /tmp/roboshop.log
+STAT $?
+
 
 
 

@@ -28,7 +28,3 @@ HEAD "Enabling Nginx \t"
 systemctl restart nginx &>> /tmp/roboshop.log
 STAT $?
 
-HEAD "Start systemd & start catalogue service"
-systemctl daemon-reload && systemctl start catalogue && systemctl enable catalogue &>> /tmp/roboshop.log
-STAT $?
-
