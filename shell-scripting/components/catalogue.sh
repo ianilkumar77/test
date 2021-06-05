@@ -13,7 +13,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/roboshop-devops-project/cat
 STAT $?
 
 HEAD "Unzipping the Catalogue application"
-cd /home/roboshop && rm -rf catalogue && unzip /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
+cd /home/roboshop && rm -rf catalogue && unzip -o /tmp/catalogue.zip &>>/tmp/roboshop.log && mv catalogue-main catalogue
 STAT $?
 
 HEAD "Installing the nodejs dependent application"
