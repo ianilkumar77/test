@@ -7,8 +7,8 @@ yum install nodejs make gcc-c++ -y &>>/tmp/roboshop.log
 STAT $?
 
 HEAD "Checking if roboshop user already exists"
-id roboshop
-if [ $? != 0]; then
+id roboshop &>>/tmp/roboshop.log
+if [ $? -eq 0]; then
   HEAD "Creating roboshop user"
   useradd roboshop &>>/tmp/roboshop.log
   STAT $?
