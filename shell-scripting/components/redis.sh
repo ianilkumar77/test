@@ -2,7 +2,7 @@
 
 source components/common.sh
 rm -f /tmp/roboshop.log
-set-hostname $1
+set-hostname redis
 
 HEAD "Install redis prerequisite applications" &>> /tmp/roboshop.log
 yum install epel-release yum-utils -y &>> /tmp/roboshop.log && yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm -y &>> /tmp/roboshop.log && yum-config-manager --enable remi &>> /tmp/roboshop.log && yum install redis -y &>> /tmp/roboshop.log
