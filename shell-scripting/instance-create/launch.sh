@@ -21,4 +21,4 @@ aws ec2 run-instances --launch-template LaunchTemplateId=${LAUNCH_TEMPLATE_ID},V
 sleep 30
 PRIVATE_IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].PrivateIpAddress|xargs -n1)
 sed -e 's/COMPONENT/${COMPONENT}/' -e 's/IPADDRESS/${PRIVATE_IP_ADDRESS}/' record.json > /tmp/record.json
-aws route53 change-resource-record-sets --hosted-zone-id Z04221902CM9ZT2GHM1NW --change-batch file:///tmp/record.json | jq
+aws route53 change-resource-record-sets --hosted-zone-id Z0436692C7FU5JVXITRX --change-batch file:///tmp/record.json | jq
