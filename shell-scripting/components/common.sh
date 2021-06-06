@@ -28,3 +28,18 @@ FIX_APP_PERMISSION() {
   HEAD "Fixing app permissions to app content" &>>/tmp/roboshop.log
   chown roboshop:roboshop /home/roboshop -R
 }
+
+INSTALL_APPLICATION() {
+HEAD "Downloading the $1 application from git hub"
+curl -s -L -o /tmp/$1.zip "https://github.com/roboshop-devops-project/$1/archive/main.zip" &>>/tmp/roboshop.log
+STAT $?
+
+HEAD "Unzipping the Catalogue application"
+cd /home/roboshop && rm -rf $1 && unzip -o /tmp/$1.zip &>>/tmp/roboshop.log && mv $1-main $1
+STAT $?
+
+HEAD "Installing the nodejs dependent application"
+cd /home/roboshop/$1 && npm install --unsafe-perm &>>/tmp/roboshop.log
+STAT $?
+
+}
