@@ -17,7 +17,7 @@ cd /home/roboshop && rm -rf catalogue && unzip -o /tmp/catalogue.zip &>>/tmp/rob
 STAT $?
 
 HEAD "Installing the nodejs dependent application"
-npm install --unsafe-perm &>>/tmp/roboshop.log
+cd /home/roboshop/catalogue && npm install --unsafe-perm &>>/tmp/roboshop.log
 STAT $?
 
 FIX_APP_PERMISSION
