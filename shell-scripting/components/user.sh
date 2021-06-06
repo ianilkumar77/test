@@ -5,7 +5,7 @@ rm -f /tmp/roboshop.log
 set-hostname user
 
 HEAD "install NodeJS in the system"
-yum install nodejs make gcc-c++ -y
+yum install nodejs make gcc-c++ -y &>> /tmp/roboshop.log
 STAT $?
 
 CREATE_ROBOSHOP_USER
