@@ -28,3 +28,6 @@ redis:
 
 shipping:
 		@sh components/shipping.sh
+
+user:
+		@sh components/user.sh
