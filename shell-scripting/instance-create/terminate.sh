@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 COMPONENT=$1
 SPOT_INSTANCE_ID=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].SpotInstanceRequestId|xargs -n1)
