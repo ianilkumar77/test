@@ -28,8 +28,8 @@ DNS_UPDATE
 }
 
 DNS_UPDATE() {
-  PRIVATE_IP_ADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].PrivateIpAddress|xargs -n1)
-sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATE_IP_ADDRESS}/" record.json > /tmp/record.json
+PRIVATEIP=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].PrivateIpAddress|xargs -n1)
+sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATEIP}/" record.json >/tmp/record.json
 aws route53 change-resource-record-sets --hosted-zone-id ${HOSTZONE_ID} --change-batch file:///tmp/record.json | jq
 }
 
