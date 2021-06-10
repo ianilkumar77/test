@@ -1,6 +1,6 @@
--name: Print Component Name
- debug:
-   msg: Component = frontend
+- name: Print Component Name
+  debug:
+    msg: Component = frontend
 #- name: Install the ngnix
 #  yum:
 #    name: nginx
