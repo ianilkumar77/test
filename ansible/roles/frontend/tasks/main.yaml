@@ -7,20 +7,14 @@
   get_url:
     url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
     dest: /tmp/frontend.zip
-#- name: Remove the default files
-#  file:
-#    path: /usr/share/nginx/html
-#    state: absent
-#
-#- name: Copy the extracted files to /usr/share/nginx/html location
-#  copy:
-#    src: /tmp/frontend-main/static/
-#    dest: /usr/share/nginx/html
-#    remote_src: yes
-#
-#- name: Start nginx, if not started
-#  service:
-#    name: nginx
-#    state: restarted
-#    enabled: yes
+
+- name: Remove directory /usr/share/nginx/html
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Unzip the copied frontend package
+  ansible.builtin.unarchive:
+    src: /tmp/frontend.zip
+    dest: /usr/share/nginx
 
