@@ -25,7 +25,7 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-name: Remove file frontend-master
+- name: Remove file frontend-master
   ansible.builtin.file:
     path: frontend-master
     state: absent
