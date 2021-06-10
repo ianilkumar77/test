@@ -2,7 +2,6 @@
   yum:
     name: nginx
     state: latest
-    become: yes
 #
 #- name: Download the frontend package from github
 #  include_role:
