@@ -37,6 +37,7 @@
 
 - name: Start the nginx service
   ansible.builtin.service:
+    state: restarted
     name: nginx
     enabled: yes
 
