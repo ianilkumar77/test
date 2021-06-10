@@ -30,4 +30,14 @@
     path: frontend-master
     state: absent
 
+- name: Remove file README.md
+  ansible.builtin.file:
+    path: README.md
+    state: absent
+
+- name: Start the nginx service
+  ansible.builtin.service:
+    name: nginx
+    enabled: yes
+
 
