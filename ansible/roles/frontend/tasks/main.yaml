@@ -19,3 +19,10 @@
     dest: /usr/share/nginx
     remote_src: yes
 
+- name: Copy extracted files to local directory
+  ansible.builtin.copy:
+    src: /usr/share/nginx/frontend-main
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+
