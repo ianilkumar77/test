@@ -2,12 +2,11 @@
   yum:
     name: nginx
     state: latest
-#
-#- name: Download the frontend package from github
-#  include_role:
-#    name: common
-#    tasks_from: download-github
-#
+
+- name: Download frontend application from GIT
+  get_url:
+    url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp/frontend.zip
 #- name: Remove the default files
 #  file:
 #    path: /usr/share/nginx/html
