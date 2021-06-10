@@ -1,10 +1,7 @@
-- name: Print Component Name
-  debug:
-    msg: Component = frontend
-#- name: Install the ngnix
-#  yum:
-#    name: nginx
-#    state: latest
+- name: Install the ngnix
+  yum:
+    name: nginx
+    state: latest
 #
 #- name: Download the frontend package from github
 #  include_role:
