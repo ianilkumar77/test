@@ -1,38 +1,42 @@
-- name: Add MongoDB repository
-  yum_repository:
-    name: mongodb
-    description: mongo db repo
-    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
-    gpgcheck: yes
-    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+-name: Print Component Name
+  debug:
+    msg: Component = mongodb
 
-- name: Install the mongodb
-  yum:
-    name: mongodb-org
-    state: installed
-
-- name: Update the bindIp address in mongod.conf file
-  lineinfile:
-    path: /etc/mongod.conf
-    regexp: '^  bindIp'
-    line: '  bindIp: 0.0.0.0'
-
-- name: restart mongodb service
-  systemd:
-    name: mongod
-    state: restarted
-    enabled: yes
-
-- name: Download the frontend package from github
-  include_role:
-    name: common
-    tasks_from: download-github
-
-- name: Load the mongodb schema
-  shell: mongo < {{ item }}
-  args:
-    chdir: /tmp/mongodb-main/
-  loop:
-    - catalogue.js
-    - users.js
+#- name: Add MongoDB repository
+#  yum_repository:
+#    name: mongodb
+#    description: mongo db repo
+#    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
+#    gpgcheck: yes
+#    gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
+#
+#- name: Install the mongodb
+#  yum:
+#    name: mongodb-org
+#    state: installed
+#
+#- name: Update the bindIp address in mongod.conf file
+#  lineinfile:
+#    path: /etc/mongod.conf
+#    regexp: '^  bindIp'
+#    line: '  bindIp: 0.0.0.0'
+#
+#- name: restart mongodb service
+#  systemd:
+#    name: mongod
+#    state: restarted
+#    enabled: yes
+#
+#- name: Download the frontend package from github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+#
+#- name: Load the mongodb schema
+#  shell: mongo < {{ item }}
+#  args:
+#    chdir: /tmp/mongodb-main/
+#  loop:
+#    - catalogue.js
+#    - users.js
 

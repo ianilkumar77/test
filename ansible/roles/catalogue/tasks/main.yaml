@@ -1,31 +1,35 @@
-- name: Install NodeJS Components
-  yum:
-    name:
-      - nodejs
-      - make
-      - gcc-c++
-    state: present
+-name: Print Component Name
+  debug:
+    msg: Component = catalogue
 
-- name: Add the user 'roboshop'
-  user:
-    name: roboshop
-
-- name: Download the frontend package from github
-  include_role:
-    name: common
-    tasks_from: download-github
-
-- name: Copy the extracted files to /home/roboshop/catalogue location
-  copy:
-    src: /tmp/catalogue-main/
-    dest: /home/roboshop/catalogue
-    remote_src: yes
-  become_user: roboshop
-
-- name: Install npm  package.json
-  npm:
-    path: /home/roboshop/catalogue
-    state: latest
-  become_user: roboshop
-
-
+#- name: Install NodeJS Components
+#  yum:
+#    name:
+#      - nodejs
+#      - make
+#      - gcc-c++
+#    state: present
+#
+#- name: Add the user 'roboshop'
+#  user:
+#    name: roboshop
+#
+#- name: Download the frontend package from github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+#
+#- name: Copy the extracted files to /home/roboshop/catalogue location
+#  copy:
+#    src: /tmp/catalogue-main/
+#    dest: /home/roboshop/catalogue
+#    remote_src: yes
+#  become_user: roboshop
+#
+#- name: Install npm  package.json
+#  npm:
+#    path: /home/roboshop/catalogue
+#    state: latest
+#  become_user: roboshop
+#
+#

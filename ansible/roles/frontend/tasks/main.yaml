@@ -1,27 +1,31 @@
-- name: Install the ngnix
-  yum:
-    name: nginx
-    state: latest
+-name: Print Component Name
+  debug:
+    msg: Component = frontend
 
-- name: Download the frontend package from github
-  include_role:
-    name: common
-    tasks_from: download-github
-
-- name: Remove the default files
-  file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: Copy the extracted files to /usr/share/nginx/html location
-  copy:
-    src: /tmp/frontend-main/static/
-    dest: /usr/share/nginx/html
-    remote_src: yes
-
-- name: Start nginx, if not started
-  service:
-    name: nginx
-    state: restarted
-    enabled: yes
+#- name: Install the ngnix
+#  yum:
+#    name: nginx
+#    state: latest
+#
+#- name: Download the frontend package from github
+#  include_role:
+#    name: common
+#    tasks_from: download-github
+#
+#- name: Remove the default files
+#  file:
+#    path: /usr/share/nginx/html
+#    state: absent
+#
+#- name: Copy the extracted files to /usr/share/nginx/html location
+#  copy:
+#    src: /tmp/frontend-main/static/
+#    dest: /usr/share/nginx/html
+#    remote_src: yes
+#
+#- name: Start nginx, if not started
+#  service:
+#    name: nginx
+#    state: restarted
+#    enabled: yes
 
