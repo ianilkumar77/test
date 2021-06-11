@@ -35,13 +35,11 @@
     APP_DIR: /tmp/mongodb-main
     EXTRACT_DIR: /tmp
 
-
-#
-#- name: Load the mongodb schema
-#  shell: mongo < {{ item }}
-#  args:
-#    chdir: /tmp/mongodb-main/
-#  loop:
-#    - catalogue.js
-#    - users.js
+- name: Load Schema in mongodb
+  community.mongodb.mongodb_shell:
+    file: "{{FILE}}"
+    idempotent: yes
+    loop:
+      - catalogue.js
+      - users.js
 
