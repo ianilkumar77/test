@@ -16,6 +16,15 @@
     - name: Load Mongodb Role
       role: mongodb
 
+- name : Roboshop Project Setup
+  hosts: CATALOGUE
+  become: yes
+  tags:
+    - catalogue
+  roles:
+    - name: Load Catalogue Role
+      role: catalogue
+
 #    - name: Import the role mongodb
 #      import_role:
 #          name: mongodb
