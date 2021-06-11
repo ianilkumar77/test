@@ -27,13 +27,15 @@
     - restart mongodb service
 
 
-- name: Download Package
+- name: Download the package from github
   include_role:
     name: common
     tasks_from: download-github
   vars:
     APP_DIR: /tmp/mongodb-main
     EXTRACT_DIR: /tmp
+
+
 #
 #- name: Load the mongodb schema
 #  shell: mongo < {{ item }}
