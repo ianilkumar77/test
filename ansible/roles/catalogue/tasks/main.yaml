@@ -23,7 +23,7 @@
     src: /tmp/catalogue-main/
     dest: /home/roboshop/catalogue
     remote_src: yes
-    mode: '0644'
+    mode: '0755'
   become_user: roboshop
 
 - name: Install npm  package.json
