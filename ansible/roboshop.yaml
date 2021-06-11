@@ -5,6 +5,13 @@
     - name: Load Frontend Role
       role: frontend
 
+- name : Roboshop Project Setup
+  hosts: MONGODB
+  become: yes
+  roles:
+    - name: Load Mongodb Role
+      role: mongodb
+
 #    - name: Import the role mongodb
 #      import_role:
 #          name: mongodb
