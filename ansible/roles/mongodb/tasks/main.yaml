@@ -5,11 +5,11 @@
     baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/4.2/x86_64/
     gpgcheck: yes
     gpgkey: https://www.mongodb.org/static/pgp/server-4.2.asc
-#
-#- name: Install the mongodb
-#  yum:
-#    name: mongodb-org
-#    state: installed
+
+- name: Install the mongodb
+  yum:
+    name: mongodb-org
+    state: installed
 #
 #- name: Update the bindIp address in mongod.conf file
 #  lineinfile:
