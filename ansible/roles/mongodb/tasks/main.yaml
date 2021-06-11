@@ -11,12 +11,13 @@
   yum:
     name: mongodb-org
     state: installed
-#
-#- name: Update the bindIp address in mongod.conf file
-#  lineinfile:
-#    path: /etc/mongod.conf
-#    regexp: '^  bindIp'
-#    line: '  bindIp: 0.0.0.0'
+
+- name: Update the Listen address from 127.0.0.1 to 0.0.0.0 in config file
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
 #
 #- name: restart mongodb service
 #  systemd:
