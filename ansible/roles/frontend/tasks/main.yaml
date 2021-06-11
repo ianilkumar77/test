@@ -8,11 +8,13 @@
     path: /usr/share/nginx/html
     state: absent
 
-- name: Unzip the copied frontend package
-  ansible.builtin.unarchive:
-    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /usr/share/nginx
-    remote_src: yes
+- name: Download Package
+  include_role:
+    name: common
+    tasks_from: download-github
+  vars:
+    APP_DIR: /usr/share/nginx/html
+    EXTRACT_DIR: /usr/share/nginx
 
 - name: Copy extracted files to local directory
   ansible.builtin.copy:

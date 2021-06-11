@@ -1,10 +1,10 @@
-- name: Download from github
-  get_url:
-    url: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
-    dest: /tmp/{{COMPONENT}}.zip
+- name: Remove old content
+  ansible.builtin.file:
+    path: "{{APP_DIR}}"
+    state: absent
 
-- name: Unzip the frontend package
-  unarchive:
-    src: /tmp/{{COMPONENT}}.zip
-    dest: /tmp
+- name: Extract Package
+  ansible.builtin.unarchive:
+    src: https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip
+    dest: "{{EXTRACT_DIR}}"
     remote_src: yes
