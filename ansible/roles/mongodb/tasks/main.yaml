@@ -39,7 +39,7 @@
   community.mongodb.mongodb_shell:
     file: "{{FILE}}"
     idempotent: yes
-    loop:
-      - catalogue.js
-      - users.js
+  loop:
+    - catalogue.js
+    - users.js
 
