@@ -3,11 +3,6 @@
     name: nginx
     state: latest
 
-- name: Download frontend application from GIT
-  get_url:
-    url: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp/frontend.zip
-
 - name: Remove directory /usr/share/nginx/html
   ansible.builtin.file:
     path: /usr/share/nginx/html
@@ -15,8 +10,8 @@
 
 - name: Unzip the copied frontend package
   ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx
+    src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
+    dest: /tmp
     remote_src: yes
 
 - name: Copy extracted files to local directory
