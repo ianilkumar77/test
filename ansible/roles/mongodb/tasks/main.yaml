@@ -37,7 +37,7 @@
 
 - name: Load Schema in mongodb
   community.mongodb.mongodb_shell:
-    file: "{{FILE}}"
+    file: "{{file}}"
     idempotent: yes
   loop:
     - catalogue.js
