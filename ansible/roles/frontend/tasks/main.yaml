@@ -11,14 +11,14 @@
 - name: Unzip the copied frontend package
   ansible.builtin.unarchive:
     src: https://github.com/roboshop-devops-project/frontend/archive/main.zip
-    dest: /tmp
+    dest: /usr/share/nginx
     remote_src: yes
 
-- name: Copy extracted files to local directory
-  ansible.builtin.copy:
-    src: /usr/share/nginx/frontend-main/static/
-    dest: /usr/share/nginx/html/
-    remote_src: yes
+#- name: Copy extracted files to local directory
+#  ansible.builtin.copy:
+#    src: /usr/share/nginx/frontend-main/static/
+#    dest: /usr/share/nginx/html/
+#    remote_src: yes
 
 - name: Remove file frontend-master
   ansible.builtin.file:
