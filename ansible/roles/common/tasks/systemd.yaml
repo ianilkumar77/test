@@ -1,3 +1,28 @@
+- name: Add the user 'roboshop'
+  user:
+    name: roboshop
+
+- name: Download the frontend package from github
+  include_role:
+    name: common
+    tasks_from: download-github
+  vars:
+    APP_DIR: /home/roboshop/{{COMPONENT}}
+    EXTRACT_DIR: /tmp
+
+- name: Copy the extracted files to /home/roboshop/{{COMPONENT}} location
+  copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+  become_user: roboshop
+
+- name: Install npm  package.json
+  npm:
+    path: /home/roboshop/{{COMPONENT}}
+    state: latest
+  become_user: roboshop
+
 - name: Copy the systemd.service to /etc/systemd/system/catalogue.service
   copy:
     src: /home/roboshop/{{COMPONENT}}/systemd.service
