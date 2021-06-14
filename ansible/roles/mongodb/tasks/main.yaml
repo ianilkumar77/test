@@ -47,3 +47,5 @@
   loop:
     - catalogue.js
     - users.js
+  vars:
+    pkg
