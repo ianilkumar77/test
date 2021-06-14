@@ -6,7 +6,13 @@
       - gcc-c++
     state: present
 
-
+- name: Download Package
+  include_role:
+    name: common
+    tasks_from: systemd
+  vars:
+    APP_DIR: /home/roboshop/catalogue
+    EXTRACT_DIR: /tmp
 
 
 
