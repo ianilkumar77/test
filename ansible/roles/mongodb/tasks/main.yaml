@@ -35,10 +35,10 @@
     APP_DIR: /tmp/mongodb-main
     EXTRACT_DIR: /tmp
 
-- name:
-  community.mongodb.mongodb_shell:
-    file: /tmp/mongodb-main/users.js
-    idempotent: yes
+#- name:
+#  community.mongodb.mongodb_shell:
+#    file: /tmp/mongodb-main/users.js
+#    idempotent: yes
 
 - name: importing users.js & catalogue.js
   ansible.builtin.shell: mongo < {{pkg}}
