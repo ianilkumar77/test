@@ -40,3 +40,10 @@
     file: /tmp/mongodb-main/users.js
     idempotent: yes
 
+- name: importing users.js & catalogue.js
+  ansible.builtin.shell: mongo < {{pkg}}
+  args:
+    chdir: /tmp/mongodb-main
+  loop:
+    - catalogue.js
+    - users.js
