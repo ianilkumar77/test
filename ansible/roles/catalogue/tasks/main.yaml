@@ -14,5 +14,12 @@
     APP_DIR: /home/roboshop/catalogue
     EXTRACT_DIR: /tmp
 
+- name: daemon reload
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: restarted
+    daemon_reload: yes
+    enabled: yes
+
 
 
