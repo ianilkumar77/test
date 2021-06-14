@@ -32,6 +32,12 @@
     path: README.md
     state: absent
 
+- name: Copy extracted files to local directory
+  ansible.builtin.copy:
+    src: localhost.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+    remote_src: yes
+
 - name: Start the nginx service
   ansible.builtin.service:
     state: restarted
