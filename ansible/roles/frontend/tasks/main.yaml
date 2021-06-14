@@ -34,7 +34,7 @@
 
 - name: Copy extracted files to local directory
   ansible.builtin.copy:
-    src: localhost.conf
+    src: /usr/share/nginx/frontend-main/localhost.conf
     dest: /etc/nginx/default.d/roboshop.conf
     remote_src: yes
 
