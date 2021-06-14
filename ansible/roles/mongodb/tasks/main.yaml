@@ -35,17 +35,20 @@
     APP_DIR: /tmp/mongodb-main
     EXTRACT_DIR: /tmp
 
-#- name:
-#  community.mongodb.mongodb_shell:
-#    file: /tmp/mongodb-main/users.js
-#    idempotent: yes
-
-- name: importing users.js & catalogue.js
-  ansible.builtin.shell: mongo < {{pkg}}
-  args:
-    chdir: /tmp/mongodb-main
+- name: Load Schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/{{item}}"
+    idempotent: yes
   loop:
-    - catalogue.js
     - users.js
-  vars:
-    pkg
+    - catalogue.js
+
+#- name: importing users.js & catalogue.js
+#  ansible.builtin.shell: mongo < {{pkg}}
+#  args:
+#    chdir: /tmp/mongodb-main
+#  loop:
+#    - catalogue.js
+#    - users.js
+#  vars:
+#    pkg
