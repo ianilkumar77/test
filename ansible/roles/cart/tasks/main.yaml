@@ -11,14 +11,14 @@
     APP_DIR: /tmp/user-main
     EXTRACT_DIR: /tmp
 
-#- name: Copy SystemD file
-#  copy:
-#    src: systemd.service
-#    dest: /etc/systemd/system/{{COMPONENT}}.service
-#
-#- name: Start user
-#  systemd:
-#    name: user
-#    enabled: yes
-#    state: started
-#    daemon_reload: yes
+- name: Copy SystemD file
+  copy:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Start {{COMPONENT}}
+  systemd:
+    name: "{{COMPONENT}}"
+    enabled: yes
+    state: started
+    daemon_reload: yes
