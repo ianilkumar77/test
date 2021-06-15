@@ -17,7 +17,7 @@
     state: latest
 
 - name: Start MySQL
- systemd:
-   name: mysqld
-   state: started
-   enabled: yes
+  systemd:
+    name: mysqld
+    state: started
+    enabled: yes
