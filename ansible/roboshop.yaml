@@ -25,14 +25,13 @@
     - name: Load Catalogue Role
       role: catalogue
 
-#    - name: Import the role mongodb
-#      import_role:
-#          name: mongodb
-#      when: APP=="mongodb"
-#      tags: mongodb
-#
-#    - name: Import the role catalogue
-#      import_role:
-#          name: catalogue
-#      when: APP=="catalogue"
-#      tags: catalogue
+- name : Roboshop Project Setup
+  hosts: REDIS
+  become: yes
+  tags:
+    - redis
+  roles:
+    - name: Load Redis Role
+      role: redis
+
+
