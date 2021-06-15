@@ -1,10 +1,11 @@
-- name: Setup yum repository for mysql
+- name: Add MySQL repository
   yum_repository:
-    name: MySQL 5.7 Community Server
-    description: EPEL YUM repo
-    file: mysql
+    name: MySQL
+    description: MySQL Repository
     baseurl: http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+    enabled: yes
     gpgcheck: no
+    file: mysql
 
 - name: Remove mariadb libraries
   yum:
