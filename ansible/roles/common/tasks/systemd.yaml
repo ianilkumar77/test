@@ -2,7 +2,7 @@
   user:
     name: roboshop
 
-- name: Download the frontend package from github
+- name: Download the {{COMPONENT}} package from github
   include_role:
     name: common
     tasks_from: download-github
