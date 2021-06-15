@@ -1,12 +1,13 @@
 - name: Install the redis prerequisite packages & redis
   yum:
-    name: "{{item}}"
+    name: http://rpms.remirepo.net/enterprise/remi-release-7.rpm
     state: latest
-  loop:
-    - epel-release
-    - yum-utils
-    - http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-    - redis
+
+- name: Install redis
+  yum:
+    name: redis
+    state: present
+    enablerepos: "remi"
 
 - name: Update the Listen address from 127.0.0.1 to 0.0.0.0 in config file
   ansible.builtin.replace:
