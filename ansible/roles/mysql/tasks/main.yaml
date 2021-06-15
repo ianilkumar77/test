@@ -1,3 +1,23 @@
--name: Print Component Name
-  debug:
-    msg: Component = mysql
+- name: Setup yum repository for mysql
+  yum_repository:
+    name: MySQL 5.7 Community Server
+    description: EPEL YUM repo
+      file: mysql
+      baseurl: http://repo.mysql.com/yum/mysql-5.7-community/el/7/$basearch/
+      gpgcheck: no
+
+- name: Remove mariadb libraries
+  yum:
+    name: mariadb-libs
+    state: absent
+
+- name: Install mysql community server
+  yum:
+    name: mysql-community-server
+    state: latest
+
+-name: Start MySQL
+ systemd:
+   name: mysqld
+   state: started
+   enabled: yes
