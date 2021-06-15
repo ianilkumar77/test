@@ -16,7 +16,7 @@
     name: mysql-community-server
     state: latest
 
--name: Start MySQL
+- name: Start MySQL
  systemd:
    name: mysqld
    state: started
