@@ -23,14 +23,14 @@
     state: latest
   become_user: roboshop
 
-- name: Update the MONGO_DNSNAME in systemd.service
-  ansible.builtin.replace:
-    path: /home/roboshop/{{COMPONENT}}/systemd.service
-    regexp: 'MONGO_DNSNAME'
-    replace: 'mongodb.roboshop.internal'
-
-- name: Copy the systemd.service to /etc/systemd/system/catalogue.service
-  copy:
-    src: /home/roboshop/{{COMPONENT}}/systemd.service
-    dest: /etc/systemd/system/{{COMPONENT}}.service
-    remote_src: yes
+#- name: Update the MONGO_DNSNAME in systemd.service
+#  ansible.builtin.replace:
+#    path: /home/roboshop/{{COMPONENT}}/systemd.service
+#    regexp: 'MONGO_DNSNAME'
+#    replace: 'mongodb.roboshop.internal'
+#
+#- name: Copy the systemd.service to /etc/systemd/system/catalogue.service
+#  copy:
+#    src: /home/roboshop/{{COMPONENT}}/systemd.service
+#    dest: /etc/systemd/system/{{COMPONENT}}.service
+#    remote_src: yes
