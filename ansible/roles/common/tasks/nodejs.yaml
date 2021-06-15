@@ -1,0 +1,8 @@
+- name: Install nodejs components
+  yum:
+    name:
+      - nodejs
+      - make
+      - gcc-c++
+    state: installed
+
