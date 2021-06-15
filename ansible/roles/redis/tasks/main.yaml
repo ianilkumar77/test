@@ -1,6 +1,6 @@
 - name: Install the redis prerequisite packages & redis
   yum:
-    name: "{{pkg}}"
+    name: "{{item}}"
     state: latest
   loop:
     - epel-release
