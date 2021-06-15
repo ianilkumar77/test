@@ -17,10 +17,9 @@
     remote_src: yes
   become_user: roboshop
 
-- name: Install npm  package.json
-  npm:
+- name: Install npm package
+  community.general.npm:
     path: /home/roboshop/{{COMPONENT}}
-    state: latest
   become_user: roboshop
 
 - name: Copy SystemD file
