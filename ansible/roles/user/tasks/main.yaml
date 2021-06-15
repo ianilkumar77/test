@@ -16,9 +16,9 @@
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
 
-- name: Start Redis
+- name: Start user
   systemd:
-    name: redis
+    name: user
     enabled: yes
     state: started
     daemon_reload: yes
