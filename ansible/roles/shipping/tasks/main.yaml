@@ -1,12 +1,4 @@
-- name: Install maven
-  yum:
-    name: maven
-    state: latest
-
-- name: Create Roboshop user
+- name: Setup Shipping Component
   include_role:
     name: common
-    tasks_from: systemd
-  vars:
-    APP_DIR: /home/roboshop/{{COMPONENT}}
-    EXTRACT_DIR: /tmp
+    tasks_from: java
