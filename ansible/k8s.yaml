@@ -1,43 +1,8 @@
-- name: Add k8s repository
-  yum_repository:
-    name: Kubernetes
-    description: k8s repo
-    baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
-    gpgcheck: yes
-    gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-    file: kubernetes.repo
-    enabled: yes
-
-- name: Install the kubeadm and docker
-  yum:
-    name: "{{item}}"
-    state: latest
-  loop:
-    - kubeadm
-    - docker
-
-- name: Start the kubelet and docker service
-  ansible.builtin.service:
-    state: restarted
-    name: "{{item}}"
-    enabled: yes
-  loop:
-    - kubelet
-    - docker
-
-- name: unsetting the http_proxy
-  ansible.builtin.shell: unset http_proxy
-
-- name: Disable SWAP since kubernetes can't work with swap enabled (1/2)
-  shell: |
-    swapoff -a
-  when: kubernetes_installed is changed
-
-- name: Disable SWAP in fstab since kubernetes can't work with swap enabled (2/2)
-  replace:
-    path: /etc/fstab
-    regexp: '^([^#].*?\sswap\s+sw\s+.*)$'
-    replace: '# \1'
-  when: kubernetes_installed is changed
-
-
+- name : Install k8s software
+  hosts: localhost
+  become: yes
+  tags:
+    - k8s
+  roles:
+    - name: Load k8s Role
+      role: k8s
