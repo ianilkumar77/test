@@ -10,7 +10,7 @@
 
 - name: Install the kubeadm and docker
   yum:
-    name: "{{pkg}}"
+    name: "{{item}}"
     state: latest
   loop:
     - kubeadm
@@ -19,7 +19,7 @@
 - name: Start the kubelet and docker service
   ansible.builtin.service:
     state: restarted
-    name: "{{service}}"
+    name: "{{item}}"
     enabled: yes
   loop:
     - kubelet
