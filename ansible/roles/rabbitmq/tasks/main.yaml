@@ -12,7 +12,7 @@
     state: present
 
 - name: Start RabbitMQ server
- systemd:
+  systemd:
     name: rabbitmq-server
     enabled: yes
     state: started
