@@ -40,4 +40,5 @@
     replace: '# \1'
 #  when: kubernetes_installed is changed
 
-
+- name: Initialize k8s master
+  shell: kubeadm init --pod-network-cidr=10.244.0.0/16 >> /tmp/k8s.log
