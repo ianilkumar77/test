@@ -5,7 +5,8 @@
     baseurl: https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
     gpgcheck: yes
     gpgkey: https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-    file: kubernetes.repo
+    file: kubernetes
+    enabled: yes
 
 - name: Install the kubeadm and docker
   yum:
