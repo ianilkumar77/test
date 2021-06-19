@@ -88,4 +88,13 @@
     - name: Load payment Role
       role: payment
 
+- name : Roboshop Project Setup
+  hosts: localhost
+  become: yes
+  tags:
+    - k8s
+  roles:
+    - name: Load k8s Role
+      role: k8s
+
 
