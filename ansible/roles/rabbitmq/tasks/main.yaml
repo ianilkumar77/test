@@ -13,9 +13,9 @@
 
 -name: Start RabbitMQ server
  systemd:
- name: rabbitmq-server
- enabled: yes
- state: started
+    name: rabbitmq-server
+    enabled: yes
+    state: started
 
 - name: Create RabbitMQ User
   community.rabbitmq.rabbitmq_user:
