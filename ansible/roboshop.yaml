@@ -70,4 +70,13 @@
     - name: Load shipping Role
       role: shipping
 
+- name : Roboshop Project Setup
+  hosts: RABBITMQ
+  become: yes
+  tags:
+    - rabbitmq
+  roles:
+    - name: Load rabbitmq Role
+      role: rabbitmq
+
 
