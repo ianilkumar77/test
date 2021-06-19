@@ -7,6 +7,6 @@
   include_role:
     name: common
     tasks_from: systemd
-    vars:
-      APP_DIR: /home/roboshop/{{COMPONENT}}
-      EXTRACT_DIR: /tmp
+  vars:
+    APP_DIR: /home/roboshop/{{COMPONENT}}
+    EXTRACT_DIR: /tmp
