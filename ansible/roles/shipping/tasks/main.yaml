@@ -1,3 +1,12 @@
--name: Print Component Name
-  debug:
-    msg: Component = shipping
+- name: Install maven
+  yum:
+    name: maven
+    state: latest
+
+- name: Create Roboshop user
+  include_role:
+    name: common
+    tasks_from: systemd
+    vars:
+      APP_DIR: /home/roboshop/{{COMPONENT}}
+      EXTRACT_DIR: /tmp
