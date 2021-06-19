@@ -79,4 +79,13 @@
     - name: Load rabbitmq Role
       role: rabbitmq
 
+- name : Roboshop Project Setup
+  hosts: PAYMENT
+  become: yes
+  tags:
+    - payment
+  roles:
+    - name: Load payment Role
+      role: payment
+
 
