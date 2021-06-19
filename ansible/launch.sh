@@ -11,7 +11,7 @@ if [ -z "${COMPONENT}" ]; then
 fi
 
 INSTANCE_CREATE() {
-INSTANCE_STATE=$(aws --region us-east-1 ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].State.Name|xargs -n1)
+INSTANCE_STATE=$(aws --region us-east-1 ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].State.Name|xargs -n1| grep -v terminated)
 if [ "${INSTANCE_STATE}" = "running" ]; then
     echo "Instance already created and running"
     exit 0
@@ -28,7 +28,7 @@ DNS_UPDATE
 }
 
 DNS_UPDATE() {
-PRIVATEIP=$(aws --region us-east-1 ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].PrivateIpAddress|xargs -n1)
+PRIVATEIP=$(aws --region us-east-1 ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}"|jq .Reservations[].Instances[].PrivateIpAddress|xargs -n1|grep -v null)
 sed -e "s/COMPONENT/${COMPONENT}/" -e "s/IPADDRESS/${PRIVATEIP}/" record.json > /tmp/record.json
 aws --region us-east-1 route53 change-resource-record-sets --hosted-zone-id ${HOSTZONE_ID} --change-batch file:///tmp/record.json | jq
 }
