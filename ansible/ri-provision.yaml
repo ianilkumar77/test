@@ -1,5 +1,8 @@
 - name : To execute the provisioning setup of RI
   hosts: localhost
+  vars_prompt:
+    - name: password
+      prompt: Provide a simple password for provisioning of users
   become: yes
   roles:
     - name: Load Frontend Role
