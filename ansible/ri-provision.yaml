@@ -1,0 +1,6 @@
+- name : To execute the provisioning setup of RI
+  hosts: localhost
+  become: yes
+  roles:
+    - name: Load Frontend Role
+      role: ri-provision

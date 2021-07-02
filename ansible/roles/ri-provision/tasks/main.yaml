@@ -1,0 +1,11 @@
+- name: create an user by accepting the password from user
+  vars_prompt:
+    - name: password
+      prompt: Provide a simple password for provisioning of users
+
+tasks:
+  - name: Print the password
+    ansible.builtin.debug:
+      msg: Password is {{password}}
+
+
