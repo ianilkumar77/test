@@ -3,7 +3,7 @@
   vars_prompt:
     - name: password
       prompt: Provide a simple password for provisioning of users
-      private: no
+
   become: yes
   roles:
     - name: Load Frontend Role
