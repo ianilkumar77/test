@@ -1,6 +1,7 @@
-- name: Print the password
-  debug:
-    msg: Password is {{password}}
+- name: Create user oradb
+  user:
+    name: oradb
+    password: {{password}}
 
 
 
