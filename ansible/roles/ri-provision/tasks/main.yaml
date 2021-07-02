@@ -3,10 +3,10 @@
     - name: password
       prompt: Provide a simple password for provisioning of users
 
-#tasks:
-- name: Print the password
-  debug:
-    msg: Password is {{password}}
+  tasks:
+  - name: Print the password
+    debug:
+      msg: Password is {{password}}
 
 
 
