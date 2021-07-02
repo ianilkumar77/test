@@ -4,8 +4,9 @@
       prompt: Provide a simple password for provisioning of users
 
 #tasks:
-  - name: Print the password
-    ansible.builtin.debug:
-      msg: Password is {{password}}
+- name: Print the password
+  debug:
+    msg: Password is {{password}}
+
 
 
