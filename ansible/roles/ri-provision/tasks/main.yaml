@@ -4,7 +4,7 @@
       prompt: Provide a simple password for provisioning of users
 
   tasks:
-  - name: Print the password
+    - name: Print the password
     debug:
       msg: Password is {{password}}
 
