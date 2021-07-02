@@ -5,8 +5,8 @@
 
   tasks:
     - name: Print the password
-    debug:
-      msg: Password is {{password}}
+      debug:
+        msg: Password is {{password}}
 
 
 
